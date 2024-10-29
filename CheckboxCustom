@@ -1,0 +1,30 @@
+import customtkinter as ctk
+
+# Initialize customtkinter
+ctk.set_appearance_mode("System")  # "System" (default), "Dark", "Light"
+ctk.set_default_color_theme("blue")  # Themes: "blue" (default), "green", "dark-blue"
+
+# Define the function to be triggered
+def activate_function():
+    print("Function activated!")
+
+# Check the checkbox state
+def check_var():
+    if var.get() == 1:
+        activate_function()
+    else:
+        print("Checkbox is unchecked.")
+
+# Set up the main application window
+root = ctk.CTk()
+root.title("Checkbox Trigger")
+
+# Create an IntVar to store the checkbox state
+var = ctk.IntVar()
+
+# Create a CTkCheckBox
+checkbox = ctk.CTkCheckBox(root, text="Enable Function", variable=var, onvalue=1, offvalue=0, command=check_var)
+checkbox.pack(pady=20, padx=20)
+
+# Run the main application loop
+root.mainloop()
